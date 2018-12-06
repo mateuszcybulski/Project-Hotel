@@ -10,6 +10,17 @@ namespace Hotel
 	{
 		static void Main(string[] args)
 		{
+			MenagmentDatabase database = new MenagmentDatabase();
+
+			List<string> wynik = database.GetResult("SELECT id, imie FROM moja_tabela", 2);
+			
+
+			foreach (string w in wynik)
+			{
+				Console.WriteLine(w);
+			}
+
+			Console.ReadLine();
 		}
 	}
 }
