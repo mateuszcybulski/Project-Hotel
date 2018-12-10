@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8EBE52DB-375D-4CF5-B8CD-FCF01A7039D4}</ProjectGuid>
+    <ProjectGuid>{4EFDC0E6-C837-4073-9DC6-933A2E35B17C}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Hotel</RootNamespace>
     <AssemblyName>Hotel</AssemblyName>
@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,8 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="databaseManagement\ConectDatabase.cs" />
+    <Compile Include="management\ManagementDatabase.cs" />
+    <Compile Include="persons\Customer.cs" />
+    <Compile Include="management\ManagementCustomers.cs" />
+    <Compile Include="management\ManagementRooms.cs" />
+    <Compile Include="persons\Person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="persons\Room.cs" />
+    <Compile Include="persons\Worker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace Hotel
 {
-	/// <summary>
-	/// class of dacade
-	/// </summary>
-	class MenagmentCustomers
+	class ManagmentCustomers
 	{
+
 		public Customer ShareCustomer(int id)
 		{
 			//code
@@ -54,7 +52,5 @@ namespace Hotel
 
 			return false;
 		}
-
-
 	}
 }

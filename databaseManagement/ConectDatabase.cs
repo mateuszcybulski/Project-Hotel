@@ -1,10 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Hotel
+namespace Hotel.management
 {
-	class MenagmentDatabase
+	class ConectDatabase
 	{
 		private MySqlConnection databaseConnection;
 		private MySqlCommand commandDatabase;
@@ -14,30 +17,26 @@ namespace Hotel
 
 		private void PrepareTheConection()
 		{
-			string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=test;";
-			
+			string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=hotel;";
 
 			databaseConnection = new MySqlConnection(connectionString);
-			commandDatabase = new MySqlCommand(query, databaseConnection);
-			commandDatabase.CommandTimeout = 60;
-			
+			commandDatabase = new MySqlCommand(query, databaseConnection)
+			{
+				CommandTimeout = 60
+			};
 		}
 
-		private void Reader(MySqlDataReader reader) {
-			
-
+		private void Reader(MySqlDataReader reader)
+		{
 			if (reader.HasRows)
 			{
 				while (reader.Read())
 				{
-					//Console.WriteLine(reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2) + " " + reader.GetString(3));
-
 					for (int i = 0; i < colums; i++)
 					{
 						result.Add(reader.GetString(i));
 
 					}
-
 				}
 			}
 			else
@@ -45,47 +44,48 @@ namespace Hotel
 				Console.WriteLine("No rows found.");
 			}
 		}
-		
-		public void ConectDatabase()
-		{
-			
 
+		public void OpenDatabase()
+		{
 			PrepareTheConection();
 			MySqlDataReader reader;
 
-
-			// Let's do it !
 			try
 			{
-				// Open the database
 				databaseConnection.Open();
 
-
-				// Execute the query
 				reader = commandDatabase.ExecuteReader();
 
+				if (colums > 0)
+				{
+					Reader(reader);
+				}
+				else result.Add("UPDATE SUCCES");
 
-				Reader(reader);
-				
-				
-				// Finally close the connection
+
 				databaseConnection.Close();
 			}
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.Message);
 			}
-
-			
 		}
 
-
-		public List<string> GetResult(string query, int colums) {
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="query"> SELECT, UPDATE, INSERT or DELETE</param>
+		/// <param name="colums">
+		/// colums greater 0 for SELECT
+		/// colums less or equals 0 for UPDATE, INSERT and DELETE
+		/// </param>
+		/// <returns></returns>
+		public List<string> GetResult(string query, int colums)
+		{
 			this.query = query;
 			this.colums = colums;
 
-			ConectDatabase();
-
+			OpenDatabase();
 
 			return result;
 		}
