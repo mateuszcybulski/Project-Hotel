@@ -19,6 +19,17 @@ namespace Hotel
 		}
 
 		public string LastName { get; set; }
-		public string ForstName { get; set; }
+		public string FirstName { get; set; }
+
+
+		public Person(int id, string FirstName, string LastName)
+		{
+			this.id = id;
+			this.FirstName = FirstName;
+			this.LastName = LastName;
+
+
+		}
+
 	}
 }

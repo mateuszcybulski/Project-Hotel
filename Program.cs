@@ -24,8 +24,12 @@ namespace Hotel
 
 			ManagementDatabase data = new ManagementDatabase();
 
-			data.GetPerson(1);
+			Person person = data.GetPerson(1);
+			if (person !=null) {
+				Console.WriteLine(person.FirstName + person.LastName + person.Id);
 
+			}
+			else Console.WriteLine("cos nie tak");
 
 
 			Console.ReadLine();

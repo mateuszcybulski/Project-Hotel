@@ -1,0 +1,11 @@
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\obj\Debug\Hotel.csprojAssemblyReference.cache
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\obj\Debug\Hotel.csproj.CoreCompileInputs.cache
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\bin\Debug\Hotel.exe.config
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\bin\Debug\Hotel.exe
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\bin\Debug\Hotel.pdb
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\bin\Debug\MySql.Data.dll
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\bin\Debug\Google.Protobuf.dll
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\bin\Debug\MySql.Data.xml
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\obj\Debug\Hotel.csproj.CopyComplete
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\obj\Debug\Hotel.exe
+C:\Users\MakarenaCosablena\source\repos\Hotel\Hotel\obj\Debug\Hotel.pdb

@@ -13,7 +13,7 @@ namespace Hotel
 		{
 			//code
 
-			return new Customer();
+			return null;
 		}
 
 
@@ -21,7 +21,7 @@ namespace Hotel
 		{
 			//code
 
-			return new Customer();
+			return null;
 		}
 
 

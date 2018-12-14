@@ -8,7 +8,9 @@ namespace Hotel
 {
 	class Customer : Person
 	{
-		
+		public Customer(int id, string FirstName, string LastName) : base(id, FirstName, LastName) {
 
-	}
+		}
+
+}
 }
