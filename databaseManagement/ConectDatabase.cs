@@ -90,7 +90,10 @@ namespace Hotel.management
 
 			OpenDatabase();
 
-			return result;
+			List<string> getResult = result;
+			result = new List<string>();
+
+			return getResult;
 		}
 	}
 }
