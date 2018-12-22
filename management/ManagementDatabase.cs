@@ -57,18 +57,35 @@ namespace Hotel.management
 
 				if (wynik[1].Equals("False"))
 				{
-					//Customer person = new Customer(id, wynik[0], wynik[1]);
-					Console.WriteLine("klient");
+					Customer person = new Customer(int.Parse(wynik[0]), firstName, lastName);
 
-					//return person;
+					return person;
 				}
 				else if (wynik[1].Equals("True"))
 				{
-					//Worker person = new Worker(id, wynik[0], wynik[1]);
-					Console.WriteLine("pracownik");
+					Worker person = new Worker(int.Parse(wynik[0]), firstName, lastName);
 
-					//return person;
+					return person;
 				}
+			}
+			else
+				Console.WriteLine("brak danych");
+
+
+
+			return null;
+		}
+
+		public Person GetPerson(Person person)
+		{
+			List<string> wynik = database.GetResult("SELECT id, firstName, lastName, worker FROM persons " +
+				"WHERE firstName = '" + person.FirstName + "' AND lastName ='" + person.LastName + "' AND id = " + person.Id , 4);
+
+
+			if (wynik.Count > 0)
+			{
+				return person;
+			
 			}
 			else
 				Console.WriteLine("brak danych");
@@ -122,6 +139,7 @@ namespace Hotel.management
 
 			}*/
 
+//			Person person = GetPerson();
 
 			List<string> theSamePerson = database.GetResult(
 				"SELECT id FROM persons " +
