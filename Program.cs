@@ -24,9 +24,11 @@ namespace Hotel
 
 			ManagementDatabase data = new ManagementDatabase();
 
-			Customer person = new Customer(1, "mat", "ceeees");
+			data.GetPerson("Danielss", "Macielecki");
 
-			Console.WriteLine(data.UpdatePerson(person));
+			// add person
+			//Person person = new Person("Nowa", "Osoba");
+			//data.AddNewPerson(person);
 
 			Console.ReadLine();
 		}

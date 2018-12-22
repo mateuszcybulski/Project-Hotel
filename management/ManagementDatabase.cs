@@ -46,6 +46,39 @@ namespace Hotel.management
 			return null;
 		}
 
+		public Person GetPerson(string firstName, string lastName)
+		{
+			List<string> wynik = database.GetResult("SELECT id, worker FROM persons " +
+				"WHERE firstName = '" + firstName + "' AND lastName ='" + lastName + "'", 2);
+
+
+			if (wynik.Count > 0)
+			{
+
+				if (wynik[1].Equals("False"))
+				{
+					//Customer person = new Customer(id, wynik[0], wynik[1]);
+					Console.WriteLine("klient");
+
+					//return person;
+				}
+				else if (wynik[1].Equals("True"))
+				{
+					//Worker person = new Worker(id, wynik[0], wynik[1]);
+					Console.WriteLine("pracownik");
+
+					//return person;
+				}
+			}
+			else
+				Console.WriteLine("brak danych");
+
+
+
+			return null;
+		}
+
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -75,8 +108,34 @@ namespace Hotel.management
 		}
 
 
-		public void NewPerson(Person person)
+		public void AddNewPerson(Person person)
 		{
+			/*List<string> data = database.GetResult("SELECT id FROM persons", 1);
+
+			if (data.Count > 0)
+			{
+				Console.WriteLine(data[data.Count - 1]);
+
+			}
+			else {
+				Console.WriteLine("brak danych w bazie");
+
+			}*/
+
+
+			List<string> theSamePerson = database.GetResult(
+				"SELECT id FROM persons " +
+				"WHERE fistName = '" + person.FirstName + "', lastName = '" + person.LastName + "'", 1);
+
+			foreach (var item in theSamePerson)
+			{
+				Console.WriteLine(item);
+			}
+
+			//List<string> databaseResult = database.GetResult("INSERT INTO `persons`(`firstName`, `lastName`, `worker`) VALUES ('Nowa', 'Osoba', 0)", 0);
+			
+
+
 
 
 		}
