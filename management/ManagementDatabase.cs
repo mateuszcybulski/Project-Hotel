@@ -124,6 +124,10 @@ namespace Hotel.management
 			return result;
 		}
 
+		public string AddNewPerson(string firstName, string lastName) {
+			Person person = new Person(firstName, lastName);
+			return AddNewPerson(person);
+		}
 
 		public string AddNewPerson(Person person)
 		{
@@ -134,7 +138,6 @@ namespace Hotel.management
 
 			if (personExist != null)
 			{
-				Console.WriteLine("ta osoba istnieje juz w bazie");
 				result = "person exsist";
 			}
 			else {
@@ -145,12 +148,7 @@ namespace Hotel.management
 				result = insertResult[0];
 			}
 			
-
-			
-
-
 			return result;
 		}
-
 	}
 }
