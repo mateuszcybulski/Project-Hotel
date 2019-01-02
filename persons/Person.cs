@@ -9,6 +9,7 @@ namespace Hotel
 	class Person
 	{
 		private int id;
+		public bool worker;
 
 		public int Id {
 			get { return id; }

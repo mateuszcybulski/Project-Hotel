@@ -125,37 +125,31 @@ namespace Hotel.management
 		}
 
 
-		public void AddNewPerson(Person person)
+		public string AddNewPerson(Person person)
 		{
-			/*List<string> data = database.GetResult("SELECT id FROM persons", 1);
 
-			if (data.Count > 0)
+			string result;
+
+			Person personExist = GetPerson(person.FirstName, person.LastName);
+
+			if (personExist != null)
 			{
-				Console.WriteLine(data[data.Count - 1]);
-
+				Console.WriteLine("ta osoba istnieje juz w bazie");
+				result = "person exsist";
 			}
 			else {
-				Console.WriteLine("brak danych w bazie");
-
-			}*/
-
-//			Person person = GetPerson();
-
-			List<string> theSamePerson = database.GetResult(
-				"SELECT id FROM persons " +
-				"WHERE fistName = '" + person.FirstName + "', lastName = '" + person.LastName + "'", 1);
-
-			foreach (var item in theSamePerson)
-			{
-				Console.WriteLine(item);
+				string sql = "INSERT INTO `persons`(`firstName`, `lastName`, `worker`) VALUES " +
+					"('" + person.FirstName + "', '" + person.LastName + "', '" + person.worker + "')";
+				
+				List<string> insertResult = database.GetResult(sql, 0);
+				result = insertResult[0];
 			}
+			
 
-			//List<string> databaseResult = database.GetResult("INSERT INTO `persons`(`firstName`, `lastName`, `worker`) VALUES ('Nowa', 'Osoba', 0)", 0);
 			
 
 
-
-
+			return result;
 		}
 
 	}

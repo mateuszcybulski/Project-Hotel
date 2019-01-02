@@ -8,10 +8,14 @@ namespace Hotel
 {
 	class Worker : Person
 	{
+
 		public Worker(int id, string FirstName, string LastName) : base(id,FirstName, LastName) {
-
+			worker = true;
 		}
-
+		public Worker(string FirstName, string LastName) : base(FirstName, LastName)
+		{
+			worker = true;
+		}
 
 
 
